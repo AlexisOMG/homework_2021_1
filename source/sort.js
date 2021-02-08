@@ -6,9 +6,14 @@ const compare = (a, b) => a.localeCompare(b);
 
 const sortSingleItem = (item) => item.split('').sort(compare).join('');
 
-const sort = (str) => str.toLowerCase()
-  .split(/\s+/)
-  .map(sortSingleItem)
-  .sort(compare)
-  .map(capitalize)
-  .join(' ');
+const sort = (str) => {
+  if (str === undefined || str === null) {
+    str = ''
+  }
+  return str.toLowerCase()
+    .split(/\s+/)
+    .map(sortSingleItem)
+    .sort(compare)
+    .map(capitalize)
+    .join(' ');
+}
