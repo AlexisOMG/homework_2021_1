@@ -41,9 +41,13 @@ QUnit.module('Тестируем функцию sort', function () {
 
 	QUnit.test('Функция не падает на невалидных входных данных', function (assert) {
 		assert.strictEqual(sort(''), '');
-		assert.strictEqual(sort(), '');
-		assert.strictEqual(sort(null), '');
 		assert.strictEqual(sort(' '), ' ');
 		assert.strictEqual(sort('		'), ' ');
+		assert.strictEqual(sort(), '');
+		assert.strictEqual(sort(null), '');
+		assert.strictEqual(sort({}), '');
+		assert.strictEqual(sort(() => {}), '');
+		assert.strictEqual(sort(13), '');
+		assert.strictEqual(sort(true), '');
 	});
 });
